@@ -1,0 +1,7 @@
+1- ao clicar no buy button, chamar backend, passando: nomepokemon, valuepokemon, id.
+2- receber no back os dados, recuperar currency atual, e inserir no mongo na collection de transactions
+3- criar page de wallet, requisitar ao backend a listagem de transactions, campo where buy=null, pq se nao é venda.
+4- listar pokemons da wallet e ao clicar no vender, mandar o id do pokemon pro backend, com o ID eu recupero o registro do mongo, consulto a currency, seto o valor de venda e salvo o registro
+
+
+pego o whereDate = e calculo o balanco geral do mês.
