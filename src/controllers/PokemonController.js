@@ -3,12 +3,8 @@ const { getBTCCurrency } = require("./CurrencyController");
 const { calculateMonetaryValue } = require("../utils/calculator");
 
 const getAllPokemons = async (req, res) => {
-   // Calling any API endpoint without a resource ID or name will return a paginated list of available resources for that API. By default, a list "page" will contain up to 20 resources. If you would like to change this just add a 'limit' query parameter to the GET request, e.g. ?limit=60. You can use 'offset' to move to the next page, e.g. ?limit=60&offset=60.
    try {
-      //Array of Pokemons with an url.
       const pokemons = await pokemonApi.get("pokemon?limit=0&offset=60");
-
-      //mapping each pokemon to fetch individual data, such as name, type, image, etc.
       const pokemonsData = pokemons.data.results;
 
       const pagination = {
@@ -50,7 +46,6 @@ const getAllPokemons = async (req, res) => {
 const getPokemonInfo = async (req, res) => {
    try {
       const { id, baseExperience } = req.body;
-      //Array of Pokemons with an url.
       const searchPokemonById = await pokemonApi.get(`/pokemon/${id}`);
       const btcCurrency = await getBTCCurrency();
 
@@ -58,8 +53,6 @@ const getPokemonInfo = async (req, res) => {
          baseExperience,
          btcCurrency
       );
-
-      //mapping each pokemon to fetch individual data, such as name, type, image, etc.
       const pokemonData = searchPokemonById.data;
 
       const pokemonObj = {

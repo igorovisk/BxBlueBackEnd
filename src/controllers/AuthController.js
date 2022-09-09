@@ -14,7 +14,7 @@ const login = async function (req, res) {
       });
 
       //TODO check user email
-      //returns boolean
+
       if (!user) {
          throw new Error("Usuário inválido");
       }
@@ -39,7 +39,6 @@ const login = async function (req, res) {
          throw new Error("Invalid Credentials");
       }
    } catch (err) {
-      console.log(err);
       return res.status(401).json({ auth: false, error: err.message });
    }
 };

@@ -63,7 +63,6 @@ const registerNewPokemon = async function (req, res) {
    }
 };
 
-//SELL TRANSACTION
 const registerSellPokemon = async function (req, res) {
    const token = req.headers["x-access-token"];
 
