@@ -3,9 +3,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 async function connectToDatabase() {
-   await mongoose.connect(process.env.DATABASE_URL).then((res) => {
-      console.log("Connected to MongoDB");
-   });
+   await mongoose
+      .connect(process.env.DB_URL, {
+         useNewUrlParser: true,
+         useUnifiedTopology: true,
+      })
+      .then(() => console.log("Connected to database"))
+      .catch((err) => console.error("Error connecting to database", err));
 }
-
 module.exports = { connectToDatabase };
